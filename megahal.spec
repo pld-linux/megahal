@@ -10,6 +10,8 @@ Source0:	http://dl.sourceforge.net/megahal/%{name}-%{version}.tar.gz
 Source1:	%{name}-personal
 Source2:	%{name}-personal.1
 URL:		http://megahal.sourceforge.net/
+BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	tcl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -34,25 +36,25 @@ do nauki jak podtrzymaæ konwersacjê. Jest mo¿liwe nauczenie MegaHAL-a
 rozmowy o nowych tematach oraz w innych jêzykach.
 
 %package -n perl-Megahal
-Summary:        perl module to megahal
-Summary(pl):    Modu³ perla do korzystania z megahala
-Group:          Development/Languages/Perl
-Requires:       %{name} = %{version}-%{release}
+Summary:	Perl module for megahal
+Summary(pl):	Modu³ Perla do korzystania z megahala
+Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}-%{release}
 
 %description -n perl-Megahal
-perl module to megahal.
+Perl module for megahal.
 
 %description -n perl-Megahal -l pl
-Modu³ perla do korzystania z megahala.
+Modu³ Perla do korzystania z megahala.
 
 %package -n python-megahal
-Summary:        python module to megahal
-Summary(pl):    Modu³ pythona do korzystania z megahala
-Group:          Libraries/Python
-Requires:       %{name} = %{version}-%{release}
+Summary:	python module for megahal
+Summary(pl):	Modu³ pythona do korzystania z megahala
+Group:		Libraries/Python
+Requires:	%{name} = %{version}-%{release}
 
 %description -n python-megahal
-python module to megahal.
+python module for megahal.
 
 %description -n python-megahal -l pl
 Modu³ pythona do korzystania z megahala.
@@ -73,10 +75,10 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/megahal,%{_mandir}/man{1,3}}
 	DESTDIR=$RPM_BUILD_ROOT
 
 install megahal %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}
-install docs/megahal*.1 %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/man1/
-install docs/megahal*.3 $RPM_BUILD_ROOT%{_mandir}/man3/
+install docs/megahal*.1 %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/man1
+install docs/megahal*.3 $RPM_BUILD_ROOT%{_mandir}/man3
 install megahal.aux megahal.ban megahal.grt megahal.swp megahal.trn \
-	$RPM_BUILD_ROOT%{_libdir}/megahal/
+	$RPM_BUILD_ROOT%{_libdir}/megahal
 
 mv -f docs/paper.txt docs/README.TXT .
 
@@ -91,11 +93,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man?/megahal*
 
 %files -n perl-Megahal
+%defattr(644,root,root,755)
 %{perl_vendorarch}/*.pm
 %dir %{perl_vendorarch}/auto/Megahal
 %{perl_vendorarch}/auto/Megahal/*.bs
-%{perl_vendorarch}/auto/Megahal/*.so
+%attr(755,root,root) %{perl_vendorarch}/auto/Megahal/*.so
 %{_mandir}/man?/Megahal*
 
 %files -n python-megahal
+%defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/*.so
