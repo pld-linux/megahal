@@ -2,7 +2,7 @@ Summary:	Conversation simulator
 Summary(pl):	Symulator konwersacji
 Name:		megahal
 Version:	9.0.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Games
 Source0:	http://dl.sourceforge.net/megahal/%{name}-%{version}.tar.gz
