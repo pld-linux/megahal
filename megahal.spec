@@ -1,3 +1,4 @@
+%include        /usr/lib/rpm/macros.perl
 Summary:	Conversation simulator
 Summary(pl):	Symulator konwersacji
 Name:		megahal
