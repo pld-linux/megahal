@@ -1,4 +1,4 @@
-Summary:	Conversation simulator 
+Summary:	Conversation simulator
 Summary(pl):	Symulator konwersacji
 Name:		megahal
 Version:	9.0.3
@@ -8,7 +8,7 @@ Group:		Applications/Games
 Group(de):	Applikationen/Spiele
 Group(pl):	Aplikacje/Gry
 Source0:	http://download.sourceforge.net/megahal/%{name}-%{version}.tar.gz
-Url:		http://megahal.sourceforge.net/
+URL:		http://megahal.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,10 +24,10 @@ to learn how to hold a conversation. It is possible to teach MegaHAL
 to talk about new topics, and in different languages.
 
 %description -l pl
-megahal jest symulatorem konwersacji który uczy siê tego co do niego
-mówisz. Symulatory konwersacji s± programami komputerowymi które
+megahal jest symulatorem konwersacji, który uczy siê tego co do niego
+mówisz. Symulatory konwersacji s± programami komputerowymi, które
 symuluj± rozmowê z lud¼mi w jêzyku naturalnym. Megahal ró¿ni siê od
-innycj symulatorów takich jak Eliza tym ¿e wykorzystuje model Markova
+innych symulatorów takich jak Eliza tym, ¿e wykorzystuje model Markova
 do nauki jak podtrzymaæ konwersacjê. Jest mo¿liwe nauczenie MegaHAL-a
 rozmowy o nowych tematach oraz w innych jêzykach.
 
