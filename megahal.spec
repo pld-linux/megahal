@@ -3,7 +3,7 @@ Summary:	Conversation simulator
 Summary(pl):	Symulator konwersacji
 Name:		megahal
 Version:	9.1.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Games
 Source0:	http://dl.sourceforge.net/megahal/%{name}-%{version}.tar.gz
@@ -54,6 +54,7 @@ Summary:	python module for megahal
 Summary(pl):	Modu³ pythona do korzystania z megahala
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
+%pyrequires_eq	python-libs
 
 %description -n python-megahal
 python module for megahal.
