@@ -45,14 +45,13 @@ install megahal.aux megahal.ban megahal.grt megahal.swp megahal.trn \
 	$RPM_BUILD_ROOT%{_libdir}/megahal/
 
 mv -f docs/paper.txt docs/README.TXT debian/README.* debian/*.p* .
-gzip -9nf paper.txt README.* hal.pl Hal.pm
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc paper.txt README.* hal.pl Hal.pm
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/megahal
 %{_mandir}/man?/*
