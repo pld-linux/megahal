@@ -11,6 +11,7 @@ Source1:	%{name}-personal
 Source2:	%{name}-personal.1
 URL:		http://megahal.sourceforge.net/
 BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	python-devel
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	tcl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
