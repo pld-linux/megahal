@@ -5,7 +5,7 @@ Version:	9.0.3
 Release:	1
 License:	GPL
 Group:		Applications/Games
-Source0:	http://download.sourceforge.net/megahal/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/megahal/%{name}-%{version}.tar.gz
 # Source0-md5:	435774dbe112dc514546cbe11d85b9f2
 URL:		http://megahal.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
