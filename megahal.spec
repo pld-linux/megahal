@@ -1,13 +1,16 @@
 Summary:	Conversation simulator
 Summary(pl):	Symulator konwersacji
 Name:		megahal
-Version:	9.0.3
-Release:	2
+Version:	9.1.1
+Release:	1
 License:	GPL
 Group:		Applications/Games
 Source0:	http://dl.sourceforge.net/megahal/%{name}-%{version}.tar.gz
-# Source0-md5:	435774dbe112dc514546cbe11d85b9f2
+# Source0-md5:	acdca9ada85cb7fc49dbe2dd8e6b4fca
+Source1:	%{name}-personal
+Source2:	%{name}-personal.1
 URL:		http://megahal.sourceforge.net/
+BuildRequires:	tcl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,29 +33,69 @@ innych symulatorów takich jak Eliza tym, ¿e wykorzystuje model Markova
 do nauki jak podtrzymaæ konwersacjê. Jest mo¿liwe nauczenie MegaHAL-a
 rozmowy o nowych tematach oraz w innych jêzykach.
 
+%package -n perl-Megahal
+Summary:        perl module to megahal
+Summary(pl):    Modu³ perla do korzystania z megahala
+Group:          Development/Languages/Perl
+Requires:       %{name} = %{version}-%{release}
+
+%description -n perl-Megahal
+perl module to megahal.
+
+%description -n perl-Megahal -l pl
+Modu³ perla do korzystania z megahala.
+
+%package -n python-megahal
+Summary:        python module to megahal
+Summary(pl):    Modu³ pythona do korzystania z megahala
+Group:          Libraries/Python
+Requires:       %{name} = %{version}-%{release}
+
+%description -n python-megahal
+python module to megahal.
+
+%description -n python-megahal -l pl
+Modu³ pythona do korzystania z megahala.
+
 %prep
-%setup -q -n %{name}
+%setup -q
 
 %build
-%{__make} all CFLAGS="%{rpmcflags}"
+%{__make} all \
+	CFLAGS="%{rpmcflags}" \
+	INSTALLDIRS=vendor
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/megahal,%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/megahal,%{_mandir}/man{1,3}}
 
-install megahal debian/megahal-personal $RPM_BUILD_ROOT%{_bindir}
-install docs/megahal.1 $RPM_BUILD_ROOT%{_mandir}/man1/
+%{__make} pythonmodule-install perlmodule-install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+install megahal %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}
+install docs/megahal*.1 %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/man1/
+install docs/megahal*.3 $RPM_BUILD_ROOT%{_mandir}/man3/
 install megahal.aux megahal.ban megahal.grt megahal.swp megahal.trn \
 	$RPM_BUILD_ROOT%{_libdir}/megahal/
 
-mv -f docs/paper.txt docs/README.TXT debian/README.* debian/*.p* .
+mv -f docs/paper.txt docs/README.TXT .
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc paper.txt README.* hal.pl Hal.pm
+%doc paper.txt README.*
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/megahal
-%{_mandir}/man?/*
+%{_mandir}/man?/megahal*
+
+%files -n perl-Megahal
+%{perl_vendorarch}/*.pm
+%dir %{perl_vendorarch}/auto/Megahal
+%{perl_vendorarch}/auto/Megahal/*.bs
+%{perl_vendorarch}/auto/Megahal/*.so
+%{_mandir}/man?/Megahal*
+
+%files -n python-megahal
+%attr(755,root,root) %{py_sitedir}/*.so
