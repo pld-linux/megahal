@@ -1,15 +1,14 @@
 Summary:	Conversation simulator 
 Summary(pl):	Symulator konwersacji
 Name:		megahal
-Version:	8.6
+Version:	9.0.3
 Release:	1
 License:	GPL
 Group:		Applications/Games
 Group(de):	Applikationen/Spiele
 Group(pl):	Aplikacje/Gry
-Source0:	%{name}-%{version}.tar.gz
-Patch0:		%{name}-DEBIAN.patch
-Url:		http://ciips.ee.uwa.edu.au/~hutch/hal/
+Source0:	http://download.sourceforge.net/megahal/%{name}-%{version}.tar.gz
+Url:		http://megahal.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -33,23 +32,22 @@ do nauki jak podtrzymaæ konwersacjê. Jest mo¿liwe nauczenie MegaHAL-a
 rozmowy o nowych tematach oraz w innych jêzykach.
 
 %prep
-%setup -q
-%patch -p1 
+%setup -q -n %{name}
 
 %build
-%{__make} linux
+%{__make} all CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/megahal,%{_mandir}/man1}
 
-install megahal_linux $RPM_BUILD_ROOT%{_bindir}/megahal
-install megahal-personal $RPM_BUILD_ROOT%{_bindir}/
-install megahal.1 $RPM_BUILD_ROOT%{_mandir}/man1/
+install megahal debian/megahal-personal $RPM_BUILD_ROOT%{_bindir}
+install docs/megahal.1 $RPM_BUILD_ROOT%{_mandir}/man1/
 install megahal.aux megahal.ban megahal.grt megahal.swp megahal.trn \
 	$RPM_BUILD_ROOT%{_libdir}/megahal/
 
-gzip -9nf paper.txt README.TXT hal.pl Hal.pm
+mv -f docs/paper.txt docs/README.TXT debian/README.* debian/*.p* .
+gzip -9nf paper.txt README.* hal.pl Hal.pm
 
 %clean
 rm -rf $RPM_BUILD_ROOT
