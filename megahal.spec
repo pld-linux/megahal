@@ -1,5 +1,5 @@
 Summary:	Conversation simulator 
-Summary(pl):	Symulator konwersacji..
+Summary(pl):	Symulator konwersacji
 Name:		megahal
 Version:	8.6
 Release:	1
@@ -42,11 +42,13 @@ rozmowy o nowych tematach oraz w innych jêzykach.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/megahal,%{_mandir}/man1}
+
 install megahal_linux $RPM_BUILD_ROOT%{_bindir}/megahal
 install megahal-personal $RPM_BUILD_ROOT%{_bindir}/
 install megahal.1 $RPM_BUILD_ROOT%{_mandir}/man1/
 install megahal.aux megahal.ban megahal.grt megahal.swp megahal.trn \
-		$RPM_BUILD_ROOT%{_libdir}/megahal/
+	$RPM_BUILD_ROOT%{_libdir}/megahal/
+
 gzip -9nf paper.txt README.TXT hal.pl Hal.pm
 
 %clean
@@ -55,7 +57,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-%attr(0755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/*
+%{_libdir}/megahal
 %{_mandir}/man?/*
-%dir %{_libdir}/megahal
-%{_libdir}/megahal/*
