@@ -35,7 +35,7 @@ rozmowy o nowych tematach oraz w innych jêzykach.
 %setup -q -n %{name}
 
 %build
-%{__make} all CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}"
+%{__make} all CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O0 -g}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
