@@ -3,14 +3,14 @@ Summary:	Conversation simulator
 Summary(pl):	Symulator konwersacji
 Name:		megahal
 Version:	9.1.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Games
 Source0:	http://dl.sourceforge.net/megahal/%{name}-%{version}.tar.gz
 # Source0-md5:	acdca9ada85cb7fc49dbe2dd8e6b4fca
 Source1:	%{name}-personal
 Source2:	%{name}-personal.1
-URL:		http://megahal.sourceforge.net/
+URL:		http://megahal.alioth.debian.org/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	python-devel
 BuildRequires:	rpm-perlprov >= 4.1-13
