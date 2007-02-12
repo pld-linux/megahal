@@ -1,6 +1,6 @@
 %include        /usr/lib/rpm/macros.perl
 Summary:	Conversation simulator
-Summary(pl):	Symulator konwersacji
+Summary(pl.UTF-8):   Symulator konwersacji
 Name:		megahal
 Version:	9.1.1
 Release:	3
@@ -29,29 +29,29 @@ conversation simulators such as Eliza in that it uses a Markov Model
 to learn how to hold a conversation. It is possible to teach MegaHAL
 to talk about new topics, and in different languages.
 
-%description -l pl
-megahal jest symulatorem konwersacji, który uczy siê tego co do niego
-mówisz. Symulatory konwersacji s± programami komputerowymi, które
-symuluj± rozmowê z lud¼mi w jêzyku naturalnym. Megahal ró¿ni siê od
-innych symulatorów takich jak Eliza tym, ¿e wykorzystuje model Markova
-do nauki jak podtrzymaæ konwersacjê. Jest mo¿liwe nauczenie MegaHAL-a
-rozmowy o nowych tematach oraz w innych jêzykach.
+%description -l pl.UTF-8
+megahal jest symulatorem konwersacji, ktÃ³ry uczy siÄ™ tego co do niego
+mÃ³wisz. Symulatory konwersacji sÄ… programami komputerowymi, ktÃ³re
+symulujÄ… rozmowÄ™ z ludÅºmi w jÄ™zyku naturalnym. Megahal rÃ³Å¼ni siÄ™ od
+innych symulatorÃ³w takich jak Eliza tym, Å¼e wykorzystuje model Markova
+do nauki jak podtrzymaÄ‡ konwersacjÄ™. Jest moÅ¼liwe nauczenie MegaHAL-a
+rozmowy o nowych tematach oraz w innych jÄ™zykach.
 
 %package -n perl-Megahal
 Summary:	Perl module for megahal
-Summary(pl):	Modu³ Perla do korzystania z megahala
+Summary(pl.UTF-8):   ModuÅ‚ Perla do korzystania z megahala
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
 %description -n perl-Megahal
 Perl module for megahal.
 
-%description -n perl-Megahal -l pl
-Modu³ Perla do korzystania z megahala.
+%description -n perl-Megahal -l pl.UTF-8
+ModuÅ‚ Perla do korzystania z megahala.
 
 %package -n python-megahal
 Summary:	python module for megahal
-Summary(pl):	Modu³ pythona do korzystania z megahala
+Summary(pl.UTF-8):   ModuÅ‚ pythona do korzystania z megahala
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
 %pyrequires_eq	python-libs
@@ -59,8 +59,8 @@ Requires:	%{name} = %{version}-%{release}
 %description -n python-megahal
 python module for megahal.
 
-%description -n python-megahal -l pl
-Modu³ pythona do korzystania z megahala.
+%description -n python-megahal -l pl.UTF-8
+ModuÅ‚ pythona do korzystania z megahala.
 
 %prep
 %setup -q
