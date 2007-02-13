@@ -1,6 +1,6 @@
 %include        /usr/lib/rpm/macros.perl
 Summary:	Conversation simulator
-Summary(pl.UTF-8):   Symulator konwersacji
+Summary(pl.UTF-8):	Symulator konwersacji
 Name:		megahal
 Version:	9.1.1
 Release:	3
@@ -39,7 +39,7 @@ rozmowy o nowych tematach oraz w innych językach.
 
 %package -n perl-Megahal
 Summary:	Perl module for megahal
-Summary(pl.UTF-8):   Moduł Perla do korzystania z megahala
+Summary(pl.UTF-8):	Moduł Perla do korzystania z megahala
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -51,7 +51,7 @@ Moduł Perla do korzystania z megahala.
 
 %package -n python-megahal
 Summary:	python module for megahal
-Summary(pl.UTF-8):   Moduł pythona do korzystania z megahala
+Summary(pl.UTF-8):	Moduł pythona do korzystania z megahala
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
 %pyrequires_eq	python-libs
