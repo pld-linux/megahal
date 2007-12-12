@@ -14,6 +14,7 @@ URL:		http://megahal.alioth.debian.org/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	python-devel
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	sed >= 4.0
 BuildRequires:	tcl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -64,9 +65,11 @@ Moduł pythona do korzystania z megahala.
 
 %prep
 %setup -q
+%{__sed} -i 's@gcc@$(CC)@' Makefile
 
 %build
 %{__make} all \
+	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}" \
 	INSTALLDIRS=vendor
 
